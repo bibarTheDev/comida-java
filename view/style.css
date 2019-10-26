@@ -1,0 +1,7 @@
+.tab-visible {
+    display: flex;
+}
+
+.tab-hidden {
+    display: none;
+}

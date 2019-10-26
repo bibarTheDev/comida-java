@@ -1,0 +1,58 @@
+public class Add implements ActionListener, MouseListener, KeyListener{
+
+    private JButton btnAdd;
+    private JLabel lblAdd;
+    private JTextField txtAdd;
+    private String xpktipo,xtipo;
+    private DefaultTableModel modelo;
+    private JTable tabela;
+    
+   
+    private Banco bantipo;
+    
+    public void leGradeSql()
+    {      ArrayList vetor;
+        vetor=new ArrayList();
+        try{
+           bantipo.conecta();
+           vetor=bantipo.selectQuery(xtipo);
+           if(vetor=null)
+           {
+               JOptionPane.showMessageDialog(null,"Tabela vazia");
+                return;     
+           }
+           else
+           {
+            for(int j=0;j<vetor.size();j++)
+             {
+                 xpktipo=""+vetor.get(j);
+                j++;
+                 xtipo=""+vetor.get(j);
+                 String linha[]={xpktipo,xtipo};
+                 modelo.addRow(linha);        
+             }
+           }
+           bantipo.desconecta();        
+        }catch(Exception erro)
+        {
+              JOptionPane.showMessageDialog(null,"Erro "+erro+" na leitura da tabela");    
+        }    
+    }
+    public void    keyPressed(KeyEvent e){}
+    public void    keyReleased(KeyEvent e){
+        int line=tabela.getSelectedRow();
+        txtAdd.setText(tabela.getValueAt(line,0)+"");
+        }
+    public void    keyTyped(KeyEvent e){}
+    public void    mouseClicked(MouseEvent e){}
+    public void    mouseEntered(MouseEvent e){}
+    public void    mouseExited(MouseEvent e){}
+    public void    mousePressed(MouseEvent e){}
+    public void    mouseReleased(MouseEvent e){
+        int line=tabela.getSelectedRow();    
+        txtAdd.setText(tabela.getValueAt(line,0)+"");
+    }
+    public void Sair()
+    {   }
+}
+

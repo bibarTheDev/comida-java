@@ -1,0 +1,44 @@
+
+    /**
+     * os indices de um array inicializado como 2D retornam arrays ja inicializados, mesmo que vazios.
+     * portando, o atributo length nao funciona como esperado. 
+     * essa funcao retorna quantos subarrays tem algum valor de fato
+     * 
+     * @param arr o array 2D
+     * @return length verdadeiro do array 2D
+     */    
+    private int arr2Dlength(String[][] arr)
+    {
+        int len = 0;
+        for (String[] subArr : arr) {
+            if(subArr[0] != null && subArr[0] != ""){
+                len++;
+            }
+        }
+
+        return len;
+    }
+
+    /**
+     * transforma uma lista de lista num array de strings 2D 
+     * 
+     * @param lista a lista
+     * @return o array
+     */
+    private String[][] listToArray(ArrayList< ArrayList<String> > lista)
+    {
+        //tamanho eh o numero de linhas de elems da lista e o numero de elems das sublistas
+        int numCols = lista.get(0).size();
+        String[][] arr = new String[lista.size()][numCols];
+
+        for(ArrayList<String> lin : lista){
+            int index = arr2Dlength(arr);
+            for(int i = 0; i != numCols; i++){
+                // System.out.println(arr2Dlength(arr) + ":" + i);
+                // System.err.println(arr[arr2Dlength(arr)].length);
+                arr[index][i] = lin.get(i);
+            }
+        }
+
+        return arr;
+    }
