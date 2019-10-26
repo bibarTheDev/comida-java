@@ -1,7 +1,50 @@
+
+/* == geral == */
+
+* {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 22px;
+}
+
+body {
+    margin: 0;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    background-color: #111;
+}
+
+#mae {
+    width: 1000px;
+}
+
+#tab-control {
+    display: flex;
+    justify-content: left;
+    background-color: #222;
+}
+
+.tab-button, .tab-button-selected {
+    padding: 7px;
+}
+
+.tab-button {
+    background-color: #222;
+    color: white;
+}
+
+.tab-button-selected {
+    background-color: #f9f9f9;
+    color: black;
+}
+
 .tab-visible {
+    background-color: #f9f9f9;
     display: flex;
 }
 
 .tab-hidden {
     display: none;
 }
+
+/* == tab 1 == */

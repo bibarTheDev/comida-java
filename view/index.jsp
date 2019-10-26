@@ -9,14 +9,17 @@
     <link rel="stylesheet" href="style.css">
 
     <script src="tab-control.js"></script>
+    <script src="../model/tab-1.js"></script>
+    <script src="../model/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
     <div id="mae">
         <!--tab control-->
         <div id="tab-control">
-            <div onclick="changeTab(1)">Tab 1</div>
-            <div onclick="changeTab(2)">Tab 2</div>
-            <div onclick="changeTab(3)">Tab 3</div>
+            <div class="tab-button-selected" id="tab-button-1" onclick="changeTab(1)">Tab 1</div>
+            <div class="tab-button" id="tab-button-2" onclick="changeTab(2)">Tab 2</div>
+            <div class="tab-button" id="tab-button-3" onclick="changeTab(3)">Tab 3</div>
         </div>
 
         <!--tabs-->
