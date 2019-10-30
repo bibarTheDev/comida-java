@@ -3,7 +3,7 @@
 
 * {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 22px;
+    font-size: 20px;
 }
 
 body {
@@ -15,7 +15,7 @@ body {
 }
 
 #mae {
-    width: 1000px;
+    width: 1400px;
 }
 
 #tab-control {
@@ -25,6 +25,7 @@ body {
 }
 
 .tab-button, .tab-button-selected {
+    font-size: 22px;
     padding: 7px;
 }
 
@@ -34,12 +35,13 @@ body {
 }
 
 .tab-button-selected {
-    background-color: #f9f9f9;
+    background-color: #fdfdfd;
     color: black;
 }
 
 .tab-visible {
-    background-color: #f9f9f9;
+    padding: 40px;
+    background-color: #fdfdfd;
     display: flex;
 }
 
@@ -48,3 +50,15 @@ body {
 }
 
 /* == tab 1 == */
+
+.table-header {
+    background-color: aquamarine;
+}
+
+.table-row-par {
+    background-color: #f9f9f9;
+}
+
+.table-row-impar {
+    background-color: #f3f3f3;
+}
