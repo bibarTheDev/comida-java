@@ -2,7 +2,8 @@
 <%@page import="java.util.*" %>
 
 <%-- processamento de dados --%>
-<%  
+<%
+try{
 
 //Banco.setParams("200.145.153.172", "5432", "turma73b", "jamon_eh_top", "turma73b", "comida_java"); //server da escola
 Banco.setParams("127.0.0.1", "5432", "postgres", "bibar", "comida"); //ambiente localhost
@@ -16,10 +17,9 @@ ArrayList< ArrayList<String> > pratos = Banco.selectQuery(sql);
 <%
 
 //if error
-if(sql == null){
-    for(String log : Banco.getErrorList()){
-        %><%= log %><br><%
-    }
+ArrayList<String> errorList = Banco.getErrorList(); 
+if(errorList.size() != 0){
+    throw new Exception("welp");
 }
 //else sucesso
 else{
@@ -55,3 +55,17 @@ else{
 }
 
 %>  
+
+
+<%-- tratamento de excessoes --%>
+<%
+
+}
+catch(Exception ex){
+    %> Erro na pagina delete-comida.jsp: <br><%
+    for(String log : Banco.getErrorList()){
+        %><%= log %><br><%
+    }
+    %><%= ex.getMessage() %><br><%
+}
+%>
