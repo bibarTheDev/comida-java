@@ -11,6 +11,8 @@ body {
     padding: 50px;
     display: flex;
     justify-content: center;
+    background-image: url("../images/static/quadriculado-diagonal.png");
+    background-size:  35px;
     background-color: #111;
 }
 
