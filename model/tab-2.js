@@ -11,36 +11,40 @@ function loadTable2()
         }
         //else erro
         else{
+            console.log(response);
             document.getElementById("table-2").innerHTML = response;
         }
     });
 }
 
 /**
- * realiza um GET request para uma pagina que deleta um prato e recarrega a tabela 1
+ * realiza um GET request para uma pagina que deleta um ingrediente e recarrega a tabela 2
  * 
- * @param id o ID do prato a ser deletado 
+ * @param id o ID do ingrediente a ser deletado 
  */
 function deleteIngrediente(id)
 {
     //teste de consistencia
     //if sim
-    if(confirm('Deseja deletar este prato?')){
-        return;
+    if(confirm('Deseja deletar este ingrediente?')){
         
         let params = {id: id};
-        $.get(path + "model/interfaces-java/delete-comida.jsp", params, (response) =>
+        $.get(path + "model/interfaces-java/delete-ingrediente.jsp", params, (response) =>
         {        
             //if sucesso
             if(response.trim() == "success"){
-                alert("Prato deletado");
+                alert("Ingrediente deletado");
+            }
+            //else if erro
+            else if(response.trim() == "fail"){
+                alert("Ingrediente nao pode ser deletado (ainda ha pratos associados a ele!)");
             }
             //else erro
             else{
-                alert("Prato nao pode ser deletado");
+                console.log(response);                
             }
 
-            loadTab1();
+            loadTab2();
         });
     }
     //else nao

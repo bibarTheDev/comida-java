@@ -5,11 +5,21 @@
 <%
 try{  
 
+String id = request.getParameter("id");
+
 //Banco.setParams("200.145.153.172", "5432", "turma73b", "jamon_eh_top", "turma73b", "comida_java"); //server da escola
 Banco.setParams("127.0.0.1", "5432", "postgres", "bibar", "comida"); //ambiente localhost
 
-String sql = "DELETE FROM comida WHERE id = "+request.getParameter("id")+";";    
+//deleta a relacao
+String sql = "DELETE FROM rel_ingredientes WHERE comida = " + id + ";";    
 boolean resp = Banco.noReturnQuery(sql);
+
+if(resp == false){
+    throw new Exception("selp");
+}
+
+sql = "DELETE FROM comida WHERE id = " + id + ";";    
+resp = Banco.noReturnQuery(sql);
 
 %>
 
@@ -19,7 +29,7 @@ boolean resp = Banco.noReturnQuery(sql);
         %> success <%
     }
     else{
-        %> Fail <%
+        throw new Exception("welp");
     }
 %>
 

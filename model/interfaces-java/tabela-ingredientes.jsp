@@ -8,7 +8,7 @@ try{
 //Banco.setParams("200.145.153.172", "5432", "turma73b", "jamon_eh_top", "turma73b", "comida_java"); //server da escola
 Banco.setParams("127.0.0.1", "5432", "postgres", "bibar", "comida"); //ambiente localhost
 
-String sql = "SELECT id, nome FROM comida ORDER BY id;";    
+String sql = "SELECT id, nome FROM ingredientes ORDER BY id;";    
 ArrayList< ArrayList<String> > ingredientes = Banco.selectQuery(sql);
 
 %>
