@@ -1,17 +1,17 @@
 /**
- * realiza um GET request para uma pagina que processa a tabela 1 em html, e carrega o retorno na view 
+ * realiza um GET request para uma pagina que processa a tabela 2 em html, e carrega o retorno na view 
  */
-function loadTable1()
+function loadTable2()
 {
-    $.get(path + "model/interfaces-java/tabela-comidas.jsp", (response) =>
+    $.get(path + "model/interfaces-java/tabela-ingredientes.jsp", (response) =>
     {   
         //if is html, sucesso
         if(response.trim().startsWith("<table>")){
-            document.getElementById("table-1").innerHTML = response;
+            document.getElementById("table-2").innerHTML = response;
         }
         //else erro
         else{
-            document.getElementById("table-1").innerHTML = response;
+            document.getElementById("table-2").innerHTML = response;
         }
     });
 }
@@ -21,11 +21,13 @@ function loadTable1()
  * 
  * @param id o ID do prato a ser deletado 
  */
-function deleteComida(id)
+function deleteIngrediente(id)
 {
     //teste de consistencia
     //if sim
     if(confirm('Deseja deletar este prato?')){
+        return;
+        
         let params = {id: id};
         $.get(path + "model/interfaces-java/delete-comida.jsp", params, (response) =>
         {        

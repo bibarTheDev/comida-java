@@ -1,7 +1,8 @@
 
 window.onload = () =>
 {
-    loadTab1();
+    loadTable1();
+    loadTable2();
 }
 
 let path = "/comida-java/";

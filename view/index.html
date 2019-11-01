@@ -10,6 +10,7 @@
 
     <script src="tab-control.js"></script>
     <script src="../model/tab-1.js"></script>
+    <script src="../model/tab-2.js"></script>
     <script src="../model/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
@@ -17,18 +18,22 @@
     <div id="mae">
         <!--tab control-->
         <div id="tab-control">
-            <div class="tab-button-selected" id="tab-button-1" onclick="changeTab(1)">Tab 1</div>
-            <div class="tab-button" id="tab-button-2" onclick="changeTab(2)">Tab 2</div>
-            <div class="tab-button" id="tab-button-3" onclick="changeTab(3)">Tab 3</div>
+            <div class="tab-button-selected" id="tab-button-1" onclick="changeTab(1)">Pratos</div>
+            <div class="tab-button" id="tab-button-2" onclick="changeTab(2)">Ingredientes</div>
+            <div class="tab-button" id="tab-button-3" onclick="changeTab(3)">Editar prato</div>
         </div>
 
         <!--tabs-->
         <div id="tabs">
             <div id="tab-1" class="tab-visible">
-                yo soy tab 1
+                <div id="table-1">
+                    yo soy tab 1
+                </div>
             </div>
             <div id="tab-2" class="tab-hidden">
-                yo soy tab 2
+                <div id="table-2">
+                    yo soy tab 2
+                </div>
             </div>
             <div id="tab-3" class="tab-hidden">
                 yo soy tab 3
