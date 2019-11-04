@@ -3,7 +3,8 @@
  */
 function loadTable2()
 {
-    $.get(path + "model/interfaces-java/tabela-ingredientes.jsp", (response) =>
+    let params = {teste: teste};
+    $.get(path + "model/interfaces-java/tabela-ingredientes.jsp", params, (response) =>
     {   
         //if is html, sucesso
         if(response.trim().startsWith("<table>")){
@@ -28,7 +29,7 @@ function deleteIngrediente(id)
     //if sim
     if(confirm('Deseja deletar este ingrediente?')){
         
-        let params = {id: id};
+        let params = {teste: teste, id: id};
         $.get(path + "model/interfaces-java/delete-ingrediente.jsp", params, (response) =>
         {        
             //if sucesso

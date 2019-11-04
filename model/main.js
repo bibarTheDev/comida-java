@@ -6,3 +6,4 @@ window.onload = () =>
 }
 
 let path = "/comida-java/";
+let teste = true;

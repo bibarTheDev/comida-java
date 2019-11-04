@@ -6,9 +6,14 @@
 try{  
 
 String id = request.getParameter("id");
+String teste = request.getParameter("teste");
 
-//Banco.setParams("200.145.153.172", "5432", "turma73b", "jamon_eh_top", "turma73b", "comida_java"); //server da escola
-Banco.setParams("127.0.0.1", "5432", "postgres", "bibar", "comida"); //ambiente localhost
+if(teste.equals("true")){
+    Banco.setParams("127.0.0.1", "5432", "postgres", "bibar", "comida"); //ambiente localhost
+}
+else{
+    Banco.setParams("200.145.153.172", "5432", "turma73b", "jamon_eh_top", "turma73b", "comida_java"); //server da escola
+}
 
 //deleta a relacao
 String sql = "DELETE FROM rel_ingredientes WHERE comida = " + id + ";";    

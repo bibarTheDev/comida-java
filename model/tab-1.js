@@ -3,7 +3,8 @@
  */
 function loadTable1()
 {
-    $.get(path + "model/interfaces-java/tabela-comidas.jsp", (response) =>
+    let params = {teste: teste};
+    $.get(path + "model/interfaces-java/tabela-comidas.jsp", params, (response) =>
     {   
         //if is html, sucesso
         if(response.trim().startsWith("<table>")){
@@ -26,7 +27,7 @@ function deleteComida(id)
     //teste de consistencia
     //if sim
     if(confirm('Deseja deletar este prato?')){
-        let params = {id: id};
+        let params = {teste: teste, id: id};
         $.get(path + "model/interfaces-java/delete-comida.jsp", params, (response) =>
         {        
             //if sucesso

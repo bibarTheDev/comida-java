@@ -7,9 +7,14 @@ try{
 
 String id = request.getParameter("id");
 int code; //status da operacao: 0- sucesso, 1- fracasso (ainda ha pratos associados), 2- erro
+String teste = request.getParameter("teste");
 
-//Banco.setParams("200.145.153.172", "5432", "turma73b", "jamon_eh_top", "turma73b", "comida_java"); //server da escola
-Banco.setParams("127.0.0.1", "5432", "postgres", "bibar", "comida"); //ambiente localhost
+if(teste.equals("true")){
+    Banco.setParams("127.0.0.1", "5432", "postgres", "bibar", "comida"); //ambiente localhost
+}
+else{
+    Banco.setParams("200.145.153.172", "5432", "turma73b", "jamon_eh_top", "turma73b", "comida_java"); //server da escola
+}
 
 //verifica por pratos com aquele ingrediente
 String sql = "SELECT COUNT(*) FROM rel_ingredientes WHERE ingr = " + id + ";";
