@@ -36,8 +36,8 @@ else{
             <th class="table-1-2">Nome</th>
             <th class="table-1-3">Peso ou Volume</th>
             <th class="table-1-4">descricao</th>
-            <th class="table-1-5">Editar</th>
-            <th class="table-1-6">Excluir</th>
+            <th class="table-1-5"></th>
+            <th class="table-1-6"></th>
         </tr>
 
         <% 
@@ -50,10 +50,10 @@ else{
             <td class="table-1-2" > <%= prato.get(1) %> </td>
             <td class="table-1-3" > <%= prato.get(2) %> </td>
             <td class="table-1-4" > <%= prato.get(3) %> </td>
-            <td class="table-1-5" > <button onclick="editComida(<%= prato.get(0) %>)">ed</button> </td>
-            <td class="table-1-6" > <button onclick="deleteComida(<%= prato.get(0) %>)">ex</button> </td>
+            <td class="table-1-5" > <div class="edit-icon" onclick="editComida(<%= prato.get(0) %>)"> <img class="img-icon" src="../images/static/edit.png" alt="editar"> </div> </td>
+            <td class="table-1-6" > <div class="delete-icon" onclick="deleteComida(<%= prato.get(0) %>)"> <img class="img-icon" src="../images/static/delete.png" alt="deletar"> </div> </td>
         </tr>
-
+    
         <% } %>
 
     </table>

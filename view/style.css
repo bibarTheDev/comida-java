@@ -20,6 +20,30 @@ body {
     width: 1400px;
 }
 
+/* == icons == */
+
+.img-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.delete-icon, .edit-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 3px;
+}
+
+.edit-icon { background-color: #2398ef; }
+.edit-icon:hover { background-color: #154fff; }
+
+.delete-icon { background-color: #ee2222; }
+.delete-icon:hover { background-color: #bb1111; }
+
+/* == tabs == */
+
 #tab-control {
     display: flex;
     justify-content: left;
@@ -51,8 +75,6 @@ body {
     display: none;
 }
 
-/* == tab 1 == */
-
 .table-header {
     background-color: aquamarine;
 }
@@ -64,3 +86,6 @@ body {
 .table-row-impar {
     background-color: #f3f3f3;
 }
+
+/* == tab 1 == */
+

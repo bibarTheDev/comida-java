@@ -26,7 +26,7 @@ if(resp != "0"){
 }
 else{
     
-    sql = "DELETE FROM comida WHERE id = " + id + ";";    
+    sql = "DELETE FROM ingredientes WHERE id = " + id + ";";    
     boolean ret = Banco.noReturnQuery(sql);
     code = (ret) ? 0 : 2;
 }

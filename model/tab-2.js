@@ -45,7 +45,44 @@ function deleteIngrediente(id)
                 console.log(response);                
             }
 
-            loadTab2();
+            loadTable2();
+        });
+    }
+    //else nao
+    else{
+
+    }
+}
+
+/**
+ * pergunta ao usuario o novo nome do ingrediente, e entao realiza um GET request para uma pagina que atualiza esse nome e recarrega a tabela 2
+ * 
+ * @param id o ID do ingrediente a ser deletado 
+ */
+function editIngrediente(id)
+{
+    //teste de consistencia
+    let nome = prompt("Digite o novo nome do ingrediente:");
+    //if sim
+    if(nome){
+        
+        let params = {teste: teste, id: id, nome: nome};
+        $.get(path + "model/interfaces-java/edit-ingrediente.jsp", params, (response) =>
+        {        
+            //if sucesso
+            if(response.trim() == "success"){
+                alert("Ingrediente atualizado");
+            }
+            //else if erro
+            else if(response.trim() == "fail"){
+                alert("Erro ao atualizar ingrediente");
+            }
+            //else erro
+            else{
+                console.log(response);                
+            }
+            
+            loadTable2();
         });
     }
     //else nao
