@@ -40,16 +40,17 @@ else{
     switch(code){
         //case sucesso
         case 0:
-            %> success <%
+            out.print("success");
             break;
         
         //case fracasso
         case 1:
-            %> fail <%
+            out.print("fail");
             break;
         
         //case error
         case 2:
+            out.print("error\n");
             throw new Exception("welp");
             //break;
     }
@@ -60,10 +61,10 @@ else{
 
 }
 catch(Exception ex){
-    %> Erro na pagina delete-comida.jsp: <br><%
+    out.print("Erro na pagina delete-comida.jsp:\n");
     for(String log : Banco.getErrorList()){
-        %><%= log %><br><%
+        out.print(log + "\n");
     }
-    %><%= ex.getMessage() %><br><%
+    out.print(ex.getMessage());
 }
 %>

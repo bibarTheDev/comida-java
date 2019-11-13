@@ -31,9 +31,10 @@ resp = Banco.noReturnQuery(sql);
 <%-- output de dados --%>
 <%
     if(resp == true){
-        %> success <%
+        out.print("success");
     }
     else{
+        out.print("fail\n");
         throw new Exception("welp");
     }
 %>
@@ -43,10 +44,10 @@ resp = Banco.noReturnQuery(sql);
 
 }
 catch(Exception ex){
-    %> Erro na pagina delete-comida.jsp: <br><%
+    out.print("Erro na pagina delete-comida.jsp:\n");
     for(String log : Banco.getErrorList()){
-        %><%= log %><br><%
+        out.print(log + "\n");
     }
-    %><%= ex.getMessage() %><br><%
+    out.print(ex.getMessage());
 }
 %>
