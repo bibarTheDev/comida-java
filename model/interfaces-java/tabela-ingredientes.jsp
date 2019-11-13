@@ -25,6 +25,7 @@ ArrayList< ArrayList<String> > ingredientes = Banco.selectQuery(sql);
 //if error
 ArrayList<String> errorList = Banco.getErrorList(); 
 if(errorList.size() != 0){
+    out.print("fail\n");
     throw new Exception("welp");
 }
 //else sucesso
@@ -64,10 +65,10 @@ else{
 
 }
 catch(Exception ex){
-    %> Erro na pagina delete-comida.jsp: <br><%
+    out.print("Erro na pagina tabela-ingredientes.jsp:\n");
     for(String log : Banco.getErrorList()){
-        %><%= log %><br><%
+        out.print(log + "\n");
     }
-    %><%= ex.getMessage() %><br><%
+    out.print(ex.getMessage());
 }
 %>
