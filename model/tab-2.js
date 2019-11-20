@@ -12,6 +12,7 @@ function loadTable2()
         }
         //else erro
         else{
+            alert("Erro ao carregar tabela");
             console.log(response);
             document.getElementById("table-2").innerHTML = response;
         }
@@ -39,9 +40,11 @@ function deleteIngrediente(id)
             //else if erro
             else if(response.trim() == "fail"){
                 alert("Ingrediente nao pode ser deletado (ainda ha pratos associados a ele!)");
+                console.log(response);                
             }
             //else erro
             else{
+                alert("Erro ao deletar ingrediente");
                 console.log(response);                
             }
 
@@ -57,7 +60,7 @@ function deleteIngrediente(id)
 /**
  * pergunta ao usuario o novo nome do ingrediente, e entao realiza um GET request para uma pagina que atualiza esse nome e recarrega a tabela 2
  * 
- * @param id o ID do ingrediente a ser deletado 
+ * @param id o ID do ingrediente a ser alterado 
  */
 function editIngrediente(id)
 {
@@ -73,12 +76,41 @@ function editIngrediente(id)
             if(response.trim() == "success"){
                 alert("Ingrediente atualizado");
             }
-            //else if erro
-            else if(response.trim() == "fail"){
+            //else erro
+            else{
                 alert("Erro ao atualizar ingrediente");
+                console.log(response);                
+            }
+            
+            loadTable2();
+        });
+    }
+    //else nao
+    else{
+
+    }
+}
+
+/**
+ * pergunta ao usuario o nome do novo ingrediente, e entao realiza um GET request para uma pagina que adiciona esse nome e recarrega a tabela 2 
+ */
+function addIngrediente()
+{
+    //teste de consistencia
+    let nome = prompt("Digite o nome do novo ingrediente:");
+    //if sim
+    if(nome){
+        
+        let params = {teste: teste, nome: nome};
+        $.get(path + "model/interfaces-java/add-ingrediente.jsp", params, (response) =>
+        {        
+            //if sucesso
+            if(response.trim() == "success"){
+                alert("Ingrediente adicionado");
             }
             //else erro
             else{
+                alert("Erro ao adicionar o ingrediente");
                 console.log(response);                
             }
             

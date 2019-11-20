@@ -17,7 +17,7 @@ else{
 }
 
 //verifica por pratos com aquele ingrediente
-String sql = "UPDATE ingredientes SET nome = '" + nome + "' WHERE id = " + id + ";";
+String sql = "INSERT INTO ingredientes VALUES (DEFAULT, '" + nome + "');";
 boolean resp = Banco.noReturnQuery(sql);
 
 %>
@@ -38,7 +38,7 @@ boolean resp = Banco.noReturnQuery(sql);
 
 }
 catch(Exception ex){
-    out.print("Erro na pagina edit-ingrediente.jsp:\n");
+    out.print("Erro na pagina add-ingrediente.jsp:\n");
     for(String log : Banco.getErrorList()){
         out.print(log + "\n");
     }

@@ -27,7 +27,7 @@ body {
     height: 20px;
 }
 
-.delete-icon, .edit-icon {
+.delete-icon, .edit-icon, .add-icon {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,11 +36,14 @@ body {
     border-radius: 3px;
 }
 
-.edit-icon { background-color: #2398ef; }
-.edit-icon:hover { background-color: #154fff; }
+.edit-icon { background-color: #2222ee; }
+.edit-icon:hover { background-color: #1111bb; }
 
 .delete-icon { background-color: #ee2222; }
 .delete-icon:hover { background-color: #bb1111; }
+
+.add-icon { background-color: #22ee22; }
+.add-icon:hover { background-color: #11bb11; }
 
 /* == tabs == */
 

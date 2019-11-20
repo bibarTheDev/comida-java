@@ -21,7 +21,7 @@ String sql = "SELECT COUNT(*) FROM rel_ingredientes WHERE ingr = " + id + ";";
 String resp = Banco.selectQuery(sql).get(0).get(0);
 
 //caso ainda haja pratos associados
-if(resp != "0"){
+if(!resp.equals("0")){
     code = 1;
 }
 else{
