@@ -33,10 +33,10 @@ else{
     %>
     <table>
         <tr class="table-header">
-            <th class="table-2-1">Id</th>
-            <th class="table-2-2">Nome</th>
-            <th class="table-2-3"></th>
-            <th class="table-2-4"></th>
+            <th class="table-2-cell">Id</th>
+            <th class="table-2-cell">Nome</th>
+            <th class="table-2-cell"></th>
+            <th class="table-2-cell"></th>
         </tr>
 
         <% 
@@ -45,10 +45,10 @@ else{
         %>
 
         <tr class="<%= ((i++ % 2 == 0) ? "table-row-par" : "table-row-impar") %>">
-            <td class="table-2-1" > <%= ingr.get(0) %> </td>
-            <td class="table-2-2" > <%= ingr.get(1) %> </td>
-            <td class="table-2-3" > <div class="edit-icon" onclick="editIngrediente(<%= ingr.get(0) %>)"> <img class="img-icon" src="../images/static/edit.png" alt="editar"> </div> </td>
-            <td class="table-2-4" > <div class="delete-icon" onclick="deleteIngrediente(<%= ingr.get(0) %>)"> <img class="img-icon" src="../images/static/delete.png" alt="deletar"> </div> </td>
+            <td class="table-2-cell"> <%= ingr.get(0) %> </td>
+            <td class="table-2-cell"> <%= ingr.get(1) %> </td>
+            <td class="table-2-cell"> <div class="edit-button icon" onclick="editIngrediente(<%= ingr.get(0) %>)"> <img class="img-icon" src="../images/static/edit.png" alt="editar"> </div> </td>
+            <td class="table-2-cell"> <div class="delete-button icon" onclick="deleteIngrediente(<%= ingr.get(0) %>)"> <img class="img-icon" src="../images/static/delete.png" alt="deletar"> </div> </td>
         </tr>
 
         <% } %>

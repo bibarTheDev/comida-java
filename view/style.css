@@ -2,7 +2,7 @@
 /* == geral == */
 
 * {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
 }
 
@@ -27,23 +27,28 @@ body {
     height: 20px;
 }
 
-.delete-icon, .edit-icon, .add-icon {
+.delete-button, .edit-button, .add-button {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 45px;
-    height: 45px;
     border-radius: 3px;
+    padding: 7px;
 }
 
-.edit-icon { background-color: #2222ee; }
-.edit-icon:hover { background-color: #1111bb; }
+.icon {
+    padding: 0px;
+    width: 45px;
+    height: 45px;
+}
 
-.delete-icon { background-color: #ee2222; }
-.delete-icon:hover { background-color: #bb1111; }
+.edit-button { background-color: #6666ff; color: white; }
+.edit-button:hover { background-color: #3333ee; color: white; }
 
-.add-icon { background-color: #22ee22; }
-.add-icon:hover { background-color: #11bb11; }
+.delete-button { background-color: #ee2222; color: white; }
+.delete-button:hover { background-color: #bb1111; color: white; }
+
+.add-button { background-color: #55ee55; color: white; }
+.add-button:hover { background-color: #33bb33; color: white; }
 
 /* == tabs == */
 
@@ -78,8 +83,16 @@ body {
     display: none;
 }
 
+/* == tables == */
+
+.table-1-cell,
+.table-2-cell {
+    padding: 7px;
+}
+
 .table-header {
-    background-color: aquamarine;
+    background-color: #ff3333;
+    color: white;
 }
 
 .table-row-par {
@@ -92,3 +105,29 @@ body {
 
 /* == tab 1 == */
 
+#tab-1 {
+    flex-direction: column;
+}
+
+#tab-1-content {
+    display: inherit; 
+    justify-content: space-between; 
+    width: 100%;
+}
+
+/* == tab 2 == */
+
+#tab-2 {
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#tab-2-content {
+    display: inherit; 
+    justify-content: space-between; 
+    width: 100%;
+}
+
+#add-ingr-button {
+    align-self: flex-start;
+}

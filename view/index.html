@@ -20,24 +20,30 @@
         <div id="tab-control">
             <div class="tab-button-selected" id="tab-button-1" onclick="changeTab(1)">Pratos</div>
             <div class="tab-button" id="tab-button-2" onclick="changeTab(2)">Ingredientes</div>
-            <div class="tab-button" id="tab-button-3" onclick="changeTab(3)">Editar prato</div>
+            <div class="tab-button" id="tab-button-3" onclick="changeTab(3)">Adicionar prato</div>
         </div>
 
         <!--tabs-->
         <div id="tabs">
             <div id="tab-1" class="tab-visible">
-                <div id="table-1">
-                    yo soy tab 1
+                <h1>Pratos</h1>
+                <div id="tab-1-content">
+                    <div id="table-1">
+                        yo soy tab 1
+                    </div>
                 </div>
             </div>
             <div id="tab-2" class="tab-hidden">
-                <div id="table-2">
-                    yo soy tab 2
+                <h1>Ingredientes</h1>
+                <div id="tab-2-content">
+                    <div id="table-2">
+                        yo soy tab 2
+                    </div>
+                    <div class="add-button" id="add-ingr-button" onclick="addIngrediente()"> Adicionar Ingrediente </div>
                 </div>
-                <div class="add-icon" onclick="addIngrediente()"> <img class="img-icon" src="../images/static/add.png" alt="add"> </div>
             </div>
             <div id="tab-3" class="tab-hidden">
-                yo soy tab 3
+                <h1>Adicionar prato</h1>
             </div>
         </div>
     </div>

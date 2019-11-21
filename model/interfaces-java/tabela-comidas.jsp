@@ -33,12 +33,12 @@ else{
     %>
     <table>
         <tr class="table-header">
-            <th class="table-1-1">Id</th>
-            <th class="table-1-2">Nome</th>
-            <th class="table-1-3">Peso ou Volume</th>
-            <th class="table-1-4">descricao</th>
-            <th class="table-1-5"></th>
-            <th class="table-1-6"></th>
+            <th class="table-1-cell">Id</th>
+            <th class="table-1-cell">Nome</th>
+            <th class="table-1-cell">Peso ou Volume</th>
+            <th class="table-1-cell">descricao</th>
+            <th class="table-1-cell"></th>
+            <th class="table-1-cell"></th>
         </tr>
 
         <% 
@@ -47,12 +47,12 @@ else{
         %>
 
         <tr class="<%= ((i++ % 2 == 0) ? "table-row-par" : "table-row-impar") %>" onclick="loadComidaInfo(<%= prato.get(0) %>)">
-            <td class="table-1-1" > <%= prato.get(0) %> </td>
-            <td class="table-1-2" > <%= prato.get(1) %> </td>
-            <td class="table-1-3" > <%= prato.get(2) %> </td>
-            <td class="table-1-4" > <%= prato.get(3) %> </td>
-            <td class="table-1-5" > <div class="edit-icon" onclick="editComida(<%= prato.get(0) %>)"> <img class="img-icon" src="../images/static/edit.png" alt="editar"> </div> </td>
-            <td class="table-1-6" > <div class="delete-icon" onclick="deleteComida(<%= prato.get(0) %>)"> <img class="img-icon" src="../images/static/delete.png" alt="deletar"> </div> </td>
+            <td class="table-1-cell"> <%= prato.get(0) %> </td>
+            <td class="table-1-cell"> <%= prato.get(1) %> </td>
+            <td class="table-1-cell"> <%= prato.get(2) %> </td>
+            <td class="table-1-cell"> <%= prato.get(3) %> </td>
+            <td class="table-1-cell"> <div class="edit-button icon" onclick="editComida(<%= prato.get(0) %>)"> <img class="img-icon" src="../images/static/edit.png" alt="editar"> </div> </td>
+            <td class="table-1-cell"> <div class="delete-button icon" onclick="deleteComida(<%= prato.get(0) %>)"> <img class="img-icon" src="../images/static/delete.png" alt="deletar"> </div> </td>
         </tr>
     
         <% } %>
