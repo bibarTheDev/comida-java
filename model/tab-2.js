@@ -1,5 +1,5 @@
 /**
- * realiza um GET request para uma pagina que processa a tabela 2 em html, e carrega o retorno na view 
+ * realiza um GET request para uma pagina que processa a tabela de ingredientes em html, e carrega o retorno na view 
  */
 function loadTable2()
 {
@@ -49,6 +49,7 @@ function deleteIngrediente(id)
             }
 
             loadTable2();
+            loadTable3();
         });
     }
     //else nao
@@ -83,6 +84,7 @@ function editIngrediente(id)
             }
             
             loadTable2();
+            loadTable3();
         });
     }
     //else nao
@@ -115,6 +117,7 @@ function addIngrediente()
             }
             
             loadTable2();
+            loadTable3();
         });
     }
     //else nao

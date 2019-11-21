@@ -1,5 +1,5 @@
 /**
- * realiza um GET request para uma pagina que processa a tabela 1 em html, e carrega o retorno na view 
+ * realiza um GET request para uma pagina que processa a tabela de pratos em html, e carrega o retorno na view 
  */
 function loadTable1()
 {

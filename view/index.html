@@ -11,6 +11,7 @@
     <script src="tab-control.js"></script>
     <script src="../model/tab-1.js"></script>
     <script src="../model/tab-2.js"></script>
+    <script src="../model/tab-3.js"></script>
     <script src="../model/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
@@ -29,21 +30,41 @@
                 <h1>Pratos</h1>
                 <div id="tab-1-content">
                     <div id="table-1">
-                        yo soy tab 1
+                        yo soy table 1
                     </div>
                 </div>
             </div>
+
             <div id="tab-2" class="tab-hidden">
                 <h1>Ingredientes</h1>
                 <div id="tab-2-content">
                     <div id="table-2">
-                        yo soy tab 2
+                        yo soy table 2
                     </div>
                     <div class="add-button" id="add-ingr-button" onclick="addIngrediente()"> Adicionar Ingrediente </div>
                 </div>
             </div>
+
             <div id="tab-3" class="tab-hidden">
                 <h1>Adicionar prato</h1>
+                <div id="tab-3-content">
+                    <form id="tab-3-form" action="" method="GET">
+                        <div id="table-3" class="form-3-box">
+                            Yo soy table 3
+                        </div>
+                        <div class="form-3-box">
+                            <input class="input-t" type="text" name="nome">
+                            <input class="input-t" type="text" name="descr">
+                            <input class="input-n" type="number" name="pes-vol">
+                            <select name="unid">
+                                <option value="g">gramas</option>
+                                <option value="ml">mililitros</option>
+                            </select>
+                        </div>
+
+                        <input type="submit" value="manda">
+                    </form>
+                </div>
             </div>
         </div>
     </div>

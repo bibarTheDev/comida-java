@@ -42,8 +42,8 @@ class Comida extends JFrame implements ActionListener, MouseListener
         setLayout(null);    
         
         //banco
-        this.db = new Banco("200.145.153.172", "5432", "turma73b", "jamon_eh_top", "turma73b", "comida_java"); //server da escola
-        //this.db = new Banco("127.0.0.1", "5432", "postgres", "bibar", "comida"); //ambiente localhost
+        //this.db = new Banco("200.145.153.172", "5432", "turma73b", "jamon_eh_top", "turma73b", "comida_java"); //server da escola
+        this.db = new Banco("127.0.0.1", "5432", "postgres", "bibar", "comida"); //ambiente localhost
         
         //menu bar
         mnbarBarrinea = new JMenuBar();

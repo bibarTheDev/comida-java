@@ -20,7 +20,27 @@ body {
     width: 1400px;
 }
 
-/* == icons == */
+/* == forms == */
+
+input[type="text"], input[type="number"] {
+    background-color: #dddddd;
+    border: 0;
+    border-bottom: 2px solid;
+    border-color: #222;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+/* == buttons == */
 
 .img-icon {
     width: 20px;
@@ -105,22 +125,11 @@ body {
 
 /* == tab 1 == */
 
-#tab-1 {
-    flex-direction: column;
-}
-
-#tab-1-content {
-    display: inherit; 
-    justify-content: space-between; 
-    width: 100%;
-}
+#tab-1 { flex-direction: column; }
 
 /* == tab 2 == */
 
-#tab-2 {
-    flex-direction: column;
-    justify-content: space-between;
-}
+#tab-2 { flex-direction: column; }
 
 #tab-2-content {
     display: inherit; 
@@ -130,4 +139,15 @@ body {
 
 #add-ingr-button {
     align-self: flex-start;
+}
+
+/* == tab 3 == */
+
+#tab-3 { flex-direction: column; }
+
+#tab-3-form {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between; 
+    width: 100%;
 }
