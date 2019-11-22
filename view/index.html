@@ -48,24 +48,49 @@
             <div id="tab-3" class="tab-hidden">
                 <h1>Adicionar prato</h1>
                 <div id="tab-3-content">
-                    <form id="tab-3-form" action="" method="GET">
-                        <div id="table-3" class="form-3-box">
-                            Yo soy table 3
-                        </div>
+                    <form id="tab-3-form" action="" method="">
+                        <!-- coluna 1 -->
                         <div class="form-3-box">
-                            <input class="input-t" type="text" name="nome">
-                            <input class="input-t" type="text" name="descr">
-                            <input class="input-n" type="number" name="pes-vol">
-                            <select name="unid">
-                                <option value="g">gramas</option>
-                                <option value="ml">mililitros</option>
-                            </select>
+                            <div class="input-group">
+                                Ingredientes:
+                                <div id="table-3" >
+                                    Yo soy table 3
+                                </div>
+                            </div>
                         </div>
-
-                        <input type="submit" value="manda">
-                    </form>
+                        <!-- coluna 2 -->
+                        <div class="form-3-box">
+                            <div class="input-group">
+                                Nome:
+                                <input onkeyup="updatePreview('tab-3-form', 'tab-3-preview')" class="input-t" type="text" name="nome">
+                            </div>
+                            <div class="input-group">
+                                Descricao:
+                                <input onkeyup="updatePreview('tab-3-form', 'tab-3-preview')" class="input-t" type="text" name="descr">
+                            </div>
+                            <div class="input-group">
+                                Tamanho:
+                                <span>
+                                    <input onkeyup="updatePreview('tab-3-form', 'tab-3-preview')" class="input-n" type="number" name="pes-vol">
+                                    <select onchange="updatePreview('tab-3-form', 'tab-3-preview')" name="unid">
+                                        <option value="g">gramas</option>
+                                        <option value="ml">mililitros</option>
+                                    </select>
+                                </span>
+                            </div>
+                            <div class="input-group">
+                                <input class="add-button" type="submit" value="Adicionar Prato">
+                            </div>
+                        </div>
+                        <!-- coluna 3 -->
+                        <div class="form-3-box">
+                            <div id="tab-3-preview">
+            
+                            </div>
+                        </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
         </div>
     </div>
 </body>

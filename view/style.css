@@ -40,6 +40,12 @@ input[type=number] {
     -moz-appearance:textfield; /* Firefox */
 }
 
+.input-group {
+    margin: 0 0 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
 /* == buttons == */
 
 .img-icon {
@@ -106,7 +112,8 @@ input[type=number] {
 /* == tables == */
 
 .table-1-cell,
-.table-2-cell {
+.table-2-cell,
+.table-3-cell {
     padding: 7px;
 }
 
@@ -148,6 +155,12 @@ input[type=number] {
 #tab-3-form {
     display: flex;
     flex-direction: row; 
-    justify-content: space-between; 
+    justify-content: flex-start; 
     width: 100%;
+}
+
+.form-3-box {
+    display: flex;
+    flex-direction: column;
+    padding: 0 60px 0 0;
 }

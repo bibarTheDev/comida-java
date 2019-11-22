@@ -9,6 +9,9 @@ String teste = request.getParameter("teste");
 String edit = request.getParameter("edit");
 String id = (edit.equals("true")) ? request.getParameter("id") : "0";
 
+String updPrevSource = null;
+String updPrevTarg = null;
+
 if(teste.equals("true")){
     Banco.setParams("127.0.0.1", "5432", "postgres", "bibar", "comida"); //ambiente localhost
 }
@@ -21,6 +24,10 @@ ArrayList< ArrayList<String> > ingredientes = Banco.selectQuery(sql);
 
 if(edit.equals("true")){
     //...
+}
+else{
+    updPrevSource = "tab-3-form";
+    updPrevTarg = "tab-3-preview";
 }
 
 %>
@@ -50,7 +57,7 @@ else{
 
         <label>
             <tr class="<%= ((i++ % 2 == 0) ? "table-row-par" : "table-row-impar") %>">
-                <td class="table-3-cell"> <input type="checkbox" name="ingredientes" value="<%= ingr.get(0) %>"> </td>
+                <td class="table-3-cell"> <input onchange="updatePreview('<%= updPrevSource %>', '<%= updPrevTarg %>')" type="checkbox" name="ingredientes" value="<%= ingr.get(0) %>_<%= ingr.get(1) %>"> </td>
                 <td class="table-3-cell"> <%= ingr.get(1) %> </td>
             </tr>
         </label>

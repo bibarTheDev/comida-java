@@ -1,5 +1,5 @@
 /**
- * realiza um GET request para uma pagina que processa a tabela de ingredietes para selecao em html, e carrega o retorno na view 
+ * realiza um GET request para uma pagina que processa a tabela de ingrediestes para selecao em html, e carrega o retorno na view 
  */
 function loadTable3()
 {
@@ -19,9 +19,15 @@ function loadTable3()
     });
 }
 
+/**
+ * pega os dados do form e realiza um Get request pra adicionar o prato
+ * 
+ * @param ev evento submit 
+ */
 function addPrato(ev)
 {
-    console.log("aa");
-    console.log(ev);
-    return false;    
+    let data = getFormPratoData("tab-3-form", false);
+    console.log(data);
+    ev.preventDefault();
+        
 }
