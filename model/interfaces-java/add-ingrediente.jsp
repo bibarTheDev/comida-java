@@ -5,7 +5,6 @@
 <%
 try{  
 
-String id = request.getParameter("id");
 String nome = request.getParameter("nome");
 String teste = request.getParameter("teste");
 

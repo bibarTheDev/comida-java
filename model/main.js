@@ -26,10 +26,9 @@ function fixStringSpace(str)
  * pega os dados do form de adicao ou edicao de pratos e os retorna eum um objeto
  * 
  * @param source id do form no HTML
- * @param viewMode modo de operacao, se deve retornar dados pra view ou pro banco
  * @returns os dados em forma de objeto
  */
-function getFormPratoData(source, viewMode)
+function getFormPratoData(source)
 {
     //pega dados brutos
     let serialData = $("#"+source).serialize();
@@ -49,11 +48,8 @@ function getFormPratoData(source, viewMode)
     {
         field = elem.split("=");
         switch (field[0]) {
-            case "ingredientes":{
-                ingr = field[1].split('_');
-                //se pega o texto ou pega o id
-                ingr = (viewMode) ? ingr[1] : ingr[0];  
-                data.ingredientes.push(fixStringSpace(ingr));
+            case "ingredientes":{  
+                data.ingredientes.push(fixStringSpace(field[1]));
                 break;
             }
             case "nome":{
@@ -89,7 +85,7 @@ function getFormPratoData(source, viewMode)
 function updatePreview(source, target)
 {
     //pega dados
-    let data = getFormPratoData(source, true);
+    let data = getFormPratoData(source);
 
     //carrega texto
     let content = "<div>";

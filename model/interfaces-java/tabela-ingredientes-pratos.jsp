@@ -57,7 +57,9 @@ else{
 
         <label>
             <tr class="<%= ((i++ % 2 == 0) ? "table-row-par" : "table-row-impar") %>">
-                <td class="table-3-cell"> <input onchange="updatePreview('<%= updPrevSource %>', '<%= updPrevTarg %>')" type="checkbox" name="ingredientes" value="<%= ingr.get(0) %>_<%= ingr.get(1) %>"> </td>
+                <td class="table-3-cell"> 
+                    <input onchange="updatePreview('<%= updPrevSource %>', '<%= updPrevTarg %>')" type="checkbox" name="ingredientes" value="<%= ingr.get(1) %>"> 
+                </td>
                 <td class="table-3-cell"> <%= ingr.get(1) %> </td>
             </tr>
         </label>

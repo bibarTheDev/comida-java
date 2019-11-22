@@ -26,8 +26,31 @@ function loadTable3()
  */
 function addPrato(ev)
 {
-    let data = getFormPratoData("tab-3-form", false);
-    console.log(data);
-    ev.preventDefault();
+    //data from form
+    let data = getFormPratoData("tab-3-form");
+
+    let params = {
+        teste: teste, 
+        nome: data.nome,
+        descricao: data.descricao,
+        pesoVol: data.pesoVolume,
+        unid: data.unid,
+        ingredientes: data.ingredientes,
+    };
+    $.get(path + "model/interfaces-java/add-comida.jsp", params, (response) =>
+    {   
+        //if sucesso
+        if(response.trim() == "success"){
+            alert("Prato adicionado");
+        }
+        //else erro
+        else{
+            alert("Erro ao adicionar o prato");
+            console.log(response);                
+        }
         
+        loadTable1();
+    });
+
+    ev.preventDefault();
 }
