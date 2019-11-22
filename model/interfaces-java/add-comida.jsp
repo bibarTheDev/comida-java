@@ -61,7 +61,7 @@ ret = Banco.noReturnQuery(sql);
 
 }
 catch(Exception ex){
-    out.print("Erro na pagina add-ingrediente.jsp:\n");
+    out.print("Erro na pagina add-prato.jsp:\n");
     for(String log : Banco.getErrorList()){
         out.print(log + "\n");
     }

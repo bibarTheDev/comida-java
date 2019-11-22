@@ -15,4 +15,9 @@ function changeTab(tabNum)
             tabButton.className = "tab-button";
         }            
     }
+
+    //acoes especiais
+    if(tabNum != 4){
+        closeEdit();
+    }
 }

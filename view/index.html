@@ -12,6 +12,7 @@
     <script src="../model/tab-1.js"></script>
     <script src="../model/tab-2.js"></script>
     <script src="../model/tab-3.js"></script>
+    <script src="../model/tab-4.js"></script>
     <script src="../model/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
@@ -22,10 +23,12 @@
             <div class="tab-button-selected" id="tab-button-1" onclick="changeTab(1)">Pratos</div>
             <div class="tab-button" id="tab-button-2" onclick="changeTab(2)">Ingredientes</div>
             <div class="tab-button" id="tab-button-3" onclick="changeTab(3)">Adicionar prato</div>
+            <div class="tab-button" id="tab-button-4" onclick="changeTab(4)">Editar prato</div>
         </div>
-
+        
         <!--tabs-->
         <div id="tabs">
+            <!-- tab 1 -->
             <div id="tab-1" class="tab-visible">
                 <h1>Pratos</h1>
                 <div id="tab-1-content">
@@ -34,7 +37,7 @@
                     </div>
                 </div>
             </div>
-
+            <!-- tab 2 -->
             <div id="tab-2" class="tab-hidden">
                 <h1>Ingredientes</h1>
                 <div id="tab-2-content">
@@ -44,7 +47,7 @@
                     <div class="add-button" id="add-ingr-button" onclick="addIngrediente()"> Adicionar Ingrediente </div>
                 </div>
             </div>
-
+            <!-- tab 3 -->
             <div id="tab-3" class="tab-hidden">
                 <h1>Adicionar prato</h1>
                 <div id="tab-3-content">
@@ -88,9 +91,59 @@
             
                             </div>
                         </div>
-                        </form>
-                    </div>
+                    </form>
                 </div>
+            </div>
+            <!-- tab 4 -->
+            <div id="tab-4" class="tab-hidden">
+                <h1>Editar prato</h1>
+                <div id="tab-4-noId" class="tab-4-content">
+                    Nenhum prato selecionado
+                </div>
+                <div id="tab-4-content" class="tab-4-content-hidden">
+                    <form id="tab-3-form" action="" method="">
+                        <!-- coluna 1 -->
+                        <div class="form-4-box">
+                            <div class="input-group">
+                                Ingredientes:
+                                <div id="table-4" >
+                                    Yo soy table 4
+                                </div>
+                            </div>
+                        </div>
+                        <!-- coluna 2 -->
+                        <div class="form-4-box">
+                            <div class="input-group">
+                                Nome:
+                                <input onkeyup="updatePreview('tab-4-form', 'tab-4-preview')" class="input-t" type="text" name="nome">
+                            </div>
+                            <div class="input-group">
+                                Descricao:
+                                <input onkeyup="updatePreview('tab-4-form', 'tab-4-preview')" class="input-t" type="text" name="descr">
+                            </div>
+                            <div class="input-group">
+                                Tamanho:
+                                <span>
+                                    <input onkeyup="updatePreview('tab-4-form', 'tab-4-preview')" class="input-n" type="number" name="pes-vol">
+                                    <select onchange="updatePreview('tab-4-form', 'tab-4-preview')" name="unid">
+                                        <option value="gramas">gramas</option>
+                                        <option value="mililitros">mililitros</option>
+                                    </select>
+                                </span>
+                            </div>
+                            <div class="input-group">
+                                <input class="add-button" type="submit" value="Adicionar Prato">
+                            </div>
+                        </div>
+                        <!-- coluna 3 -->
+                        <div class="form-4-box">
+                            <div id="tab-4-preview">
+            
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </body>

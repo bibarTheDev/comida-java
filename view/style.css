@@ -164,3 +164,28 @@ input[type=number] {
     flex-direction: column;
     padding: 0 60px 0 0;
 }
+
+/* == tab 4 == */
+
+#tab-4 { flex-direction: column; }
+
+.tab-4-content-hidden {
+    display: none;
+}
+
+tab-4-content {
+    display: flex;
+}
+
+#tab-4-form {
+    display: flex;
+    flex-direction: row; 
+    justify-content: flex-start; 
+    width: 100%;
+}
+
+.form-4-box {
+    display: flex;
+    flex-direction: column;
+    padding: 0 60px 0 0;
+}
