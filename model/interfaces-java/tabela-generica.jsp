@@ -8,7 +8,7 @@ try{
 String teste = request.getParameter("teste");
 int selection = Integer.parseInt(request.getParameter("selection"));
 
-List<String> cams = null;
+List<String> campos = null;
 
 if(teste.equals("true")){
     Banco.setParams("127.0.0.1", "5432", "postgres", "bibar", "comida"); //ambiente localhost
@@ -21,12 +21,12 @@ String sql = "";
 switch (selection) {
     case 1:
         sql = "SELECT id, nome, descricao, peso_volume FROM comida ORDER BY id;";
-       campos = Arrays.asList(new String[]{"id", "nome", "descricao", "peso_olume"});
+        campos = Arrays.asList(new String[]{"id", "nome", "descricao", "peso_volume"});
         break;
     
     case 2:
         sql = "SELECT * FROM ingredientes ORDER BY id;";
-       campos = Arrays.asList(new String[]{"id", "nome");
+        campos = Arrays.asList(new String[]{"id", "nome"});
         break;
     
     case 3:
@@ -34,7 +34,7 @@ switch (selection) {
         sql +=  "JOIN comida AS c ON r.comida = c.id ";
         sql +=  "JOIN ingredientes AS i ON r.ingr = i.id ";
         sql +=  "ORDER BY comida;";
-       campos = Arrays.asList(new String[]{"comida.nome", "ingredientes.nome");
+        campos = Arrays.asList(new String[]{"comida.nome", "ingredientes.nome"});
         break;
     
     default:
@@ -77,7 +77,6 @@ else{
                 out.print("</tr>");
             }
         %>
-
     </table>
     <%
 }
