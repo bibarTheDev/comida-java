@@ -1,26 +1,22 @@
 /**
- * carrega uma tabela de relatorio de banco (basicamente um dump)
+ * carrega uma tabela de relatorio de banco (basicamente um dump) por meio de um get request
  * 
- * @param id qual tabela 
+ * @param selection qual tabela 
  */ 
-function loadRelatorio(id)
+function loadRelatorio(selection)
 {
-    let query = "";
-
-    switch (id) {
-        case 1:{
-            query = "SELECT * FROM comida ORDER BY id;";
-            break;
+    let params = {teste: teste, selection: selection};
+    $.get(path + "model/interfaces-java/tabela-generica.jsp", params, (response) =>
+    {   
+        //if is html, sucesso
+        if(response.trim().startsWith("<table>")){
+            document.getElementById("table-5").innerHTML = response;
         }
-        case 2:{
-            query = "SELECT * FROM ingredientes ORDER BY id;";
-            break;
+        //else erro
+        else{
+            alert("Erro ao carregar tabela");
+            console.log(response);
+            document.getElementById("table-5").innerHTML = response;
         }
-        case 3:{
-            query = "SELECT * FROM table ORDER BY comida;";
-            break;
-        }
-        default:
-            break;
-    }
+    });
 }
