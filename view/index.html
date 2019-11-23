@@ -13,6 +13,7 @@
     <script src="../model/tab-2.js"></script>
     <script src="../model/tab-3.js"></script>
     <script src="../model/tab-4.js"></script>
+    <script src="../model/tab-5.js"></script>
     <script src="../model/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
@@ -24,6 +25,7 @@
             <div class="tab-button" id="tab-button-2" onclick="changeTab(2)">Ingredientes</div>
             <div class="tab-button" id="tab-button-3" onclick="changeTab(3)">Adicionar prato</div>
             <div class="tab-button" id="tab-button-4" onclick="changeTab(4)">Editar prato</div>
+            <div class="tab-button" id="tab-button-5" onclick="changeTab(5)">Relatorios</div>
         </div>
         
         <!--tabs-->
@@ -148,6 +150,20 @@
                             </div>
                         </div>
                     </form>
+                </div>
+            </div>
+
+            <!-- tab 5 -->
+            <div id="tab-5" class="tab-hidden">
+                <h1>Relatorios</h1>
+                <div id="tab-5-content">
+                    <div id="tab-5-buttons">
+                        <div class="edit-button" onclick="loadRelatorio(1)"> Tabela de comidas </div>
+                        <div class="edit-button" onclick="loadRelatorio(2)"> Tabela de comidas </div>
+                        <div class="edit-button" onclick="loadRelatorio(3)"> Tabela Relacional </div>
+                    </div>
+                    <div id="table-5">
+                    </div>
                 </div>
             </div>
         </div>

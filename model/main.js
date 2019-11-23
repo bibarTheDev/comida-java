@@ -93,6 +93,18 @@ function updatePreviewFromForm(source, target)
     //pega dados
     let data = getFormPratoData(source);
 
+    //joga texto na view
+    document.getElementById(target).innerHTML = getPratoPreviewText(data);
+}
+
+/**
+ * pega um objeto de dados de um prato e retorna um texto html pra preview desse prato
+ * 
+ * @param data o objeto
+ * @returns a string html 
+ */
+function getPratoPreviewText(data)
+{
     //carrega texto
     let content = "<div>";
     content += "<h4>" + data.nome + "</h4>";
@@ -104,9 +116,8 @@ function updatePreviewFromForm(source, target)
         content += "<li>" + ingrediente + "</li>"
     });
     content += "</ul></div>";
-
-    //joga texto na view
-    document.getElementById(target).innerHTML = content;
+    
+    return content;
 }
 
 /**

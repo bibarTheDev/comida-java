@@ -39,7 +39,7 @@ function addPrato(ev)
         teste: teste, 
         nome: data.nome,
         descricao: data.descricao,
-        pesoVol: data.pesoVolume,
+        pesoVolume: data.pesoVolume,
         unid: data.unid,
         ingredientes: data.ingredientes,
     };

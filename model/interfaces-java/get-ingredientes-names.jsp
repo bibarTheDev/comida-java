@@ -6,7 +6,7 @@
 try{
 
 String teste = request.getParameter("teste");
-String id = request.getParameter("id");
+String[] ids = request.getParameterValues("ingredientes[]");
 
 if(teste.equals("true")){
     Banco.setParams("127.0.0.1", "5432", "postgres", "bibar", "comida"); //ambiente localhost
@@ -15,10 +15,13 @@ else{
     Banco.setParams("200.145.153.172", "5432", "turma73b", "jamon_eh_top", "turma73b", "comida_java"); //server da escola
 }
 
-String sql = "SELECT nome, peso_volume, descricao FROM comida WHERE id=" + id + ";";    
-ArrayList<String> prato = Banco.selectQuery(sql).get(0);
+String idsSerial = "";
+for(int i = 0; i != ids.length; i++){
+    idsSerial += ids[i];
+    idsSerial += (!(i == (ids.length - 1))) ? ", " : "";
+}
 
-sql = "SELECT ingr FROM rel_ingredientes WHERE comida=" + id + ";";
+String sql = "SELECT nome FROM ingredientes WHERE id IN (" + idsSerial + ");";
 ArrayList< ArrayList<String> > ingredientes = Banco.selectQuery(sql);
 
 %>
@@ -35,26 +38,23 @@ if(errorList.size() != 0){
 //else sucesso
 else{
     //formatacao
-    String serialPrato = "id="+id;
-    serialPrato += "&nome="+ prato.get(0);
-    serialPrato += "&pesVol="+ prato.get(1);
-    serialPrato += "&descricao="+ prato.get(2);
+    String ingredientesNames = "";
 
-    for(ArrayList<String> ingr : ingredientes){ 
-        serialPrato += "&ingredientes=" + ingr.get(0);
+    for(int i = 0; i != ingredientes.size(); i++){ 
+        ingredientesNames += "ingredientes=" + ingredientes.get(i).get(0);
+        ingredientesNames += (!(i == (ingredientes.size() - 1))) ? "&" : "";
     }
 
-    out.print(serialPrato);
+    out.print(ingredientesNames);
 }
 %>  
-
 
 <%-- tratamento de excessoes --%>
 <%
 
 }
 catch(Exception ex){
-    out.print("Erro na pagina get-comida.jsp:\n");
+    out.print("Erro na pagina get-ingredientes-names.jsp:\n");
     for(String log : Banco.getErrorList()){
         out.print(log + "\n");
     }

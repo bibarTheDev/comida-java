@@ -9,7 +9,7 @@ String teste = request.getParameter("teste");
 
 String nome = request.getParameter("nome");
 String descricao = request.getParameter("descricao");
-String pesoVol = request.getParameter("pesoVol") + " " + request.getParameter("unid");
+String pesoVolume = request.getParameter("pesoVolume") + " " + request.getParameter("unid");
 String[] ingredientes = request.getParameterValues("ingredientes[]");
 
 
@@ -21,7 +21,7 @@ else{
 }
 
 //adiciona o objeto prato
-String sql = "INSERT INTO comida VALUES (DEFAULT, '" + nome + "', '" + pesoVol + "', '" + descricao + "');";
+String sql = "INSERT INTO comida VALUES (DEFAULT, '" + nome + "', '" + pesoVolume + "', '" + descricao + "');";
 boolean ret = Banco.noReturnQuery(sql);
 
 if(!ret){

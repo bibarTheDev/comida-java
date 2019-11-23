@@ -10,7 +10,7 @@ String teste = request.getParameter("teste");
 String id = request.getParameter("id");
 String nome = request.getParameter("nome");
 String descricao = request.getParameter("descricao");
-String pesoVol = request.getParameter("pesoVol") + " " + request.getParameter("unid");
+String pesoVolume = request.getParameter("pesoVolume") + " " + request.getParameter("unid");
 String[] ingredientes = request.getParameterValues("ingredientes[]");
 
 
@@ -22,7 +22,7 @@ else{
 }
 
 //insere o prato
-String sql = "UPDATE comida SET nome = '" + nome + "', peso_volume = '" + pesoVol + "', descricao = '" + descricao + "' WHERE id = " + id + "; ";
+String sql = "UPDATE comida SET nome = '" + nome + "', peso_volume = '" + pesoVolume + "', descricao = '" + descricao + "' WHERE id = " + id + "; ";
 boolean ret = Banco.noReturnQuery(sql);
 
 if(!ret){

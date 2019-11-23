@@ -50,3 +50,44 @@ function deleteComida(id)
 
     }
 }
+
+/**
+ * carrega preview de comida
+ * 
+ * @param id o id do prato
+ */
+async function loadComidaInfo(id)
+{
+    //pega os dados
+    dados = await getAllPratoData(id);
+    
+    //conserta ingredientes
+    let params = {teste: teste, ingredientes: dados.ingredientes};
+    await $.get(path + "model/interfaces-java/get-ingredientes-names.jsp", params, (response) =>
+    {   
+        //if is serial, sucesso
+        if(response.trim().startsWith("ingredientes=")){
+            dados.ingredientes = [];
+            
+            response = response.trim().split('&');
+            response.forEach(ingr => {
+                dados.ingredientes.push(ingr.split("=")[1]);    
+            });
+        }
+        //else erro
+        else{
+            alert("Erro ao carregar preview");
+            console.log(response);
+            document.getElementById("prato-1-preview").innerHTML = response;
+        }
+    });
+
+    //monta a preview
+    let content = getPratoPreviewText(dados);
+
+    //carega preview
+    document.getElementById("prato-1-preview").innerHTML = content;
+    
+    //scrolla a pag
+    window.scrollTo(0,document.body.scrollHeight);
+}
