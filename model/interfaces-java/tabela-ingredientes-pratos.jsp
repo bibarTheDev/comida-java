@@ -6,11 +6,22 @@
 try{
 
 String teste = request.getParameter("teste");
-String edit = request.getParameter("edit");
-String id = (edit.equals("true")) ? request.getParameter("id") : "0";
+boolean edit = (request.getParameter("edit").equals("true")) ? true : false;
+List<String> pratIngr = null;
 
 String updPrevSource = null;
 String updPrevTarg = null;
+
+if(edit){
+    //transforma array de ingredientes do request numa lista
+    pratIngr = Arrays.asList(request.getParameterValues("ingredientes[]"));
+    updPrevSource = "tab-4-form";
+    updPrevTarg = "tab-4-preview";
+}
+else{
+    updPrevSource = "tab-3-form";
+    updPrevTarg = "tab-3-preview";
+}
 
 if(teste.equals("true")){
     Banco.setParams("127.0.0.1", "5432", "postgres", "bibar", "comida"); //ambiente localhost
@@ -21,14 +32,6 @@ else{
 
 String sql = "SELECT id, nome FROM ingredientes ORDER BY id;";    
 ArrayList< ArrayList<String> > ingredientes = Banco.selectQuery(sql);
-
-if(edit.equals("true")){
-    //...
-}
-else{
-    updPrevSource = "tab-3-form";
-    updPrevTarg = "tab-3-preview";
-}
 
 %>
 
@@ -43,24 +46,32 @@ if(errorList.size() != 0){
 }
 //else sucesso
 else{
+    String tableNumber = (edit) ? "4" : "3";
+
     %>
     <table>
         <tr class="table-header">
-            <th class="table-3-cell">Selecao</th>
-            <th class="table-3-cell">Nome</th>
+            <th class="<%="table-" + tableNumber + "-cell" %>">Selecao</th>
+            <th class="<%="table-" + tableNumber + "-cell" %>">Nome</th>
         </tr>
 
         <% 
             int i = 0;
-            for(ArrayList<String> ingr : ingredientes){ 
+            boolean isInIgr = false;
+            for(ArrayList<String> ingr : ingredientes){
+
+                //checa se um ingrediente e parte dos ingredietes do prato
+                if(edit){
+                    isInIgr = pratIngr.contains(ingr.get(0)) ? true : false;
+                }
         %>
 
         <label>
             <tr class="<%= ((i++ % 2 == 0) ? "table-row-par" : "table-row-impar") %>">
-                <td class="table-3-cell"> 
-                    <input onchange="updatePreview('<%= updPrevSource %>', '<%= updPrevTarg %>')" type="checkbox" name="ingredientes" value="<%= ingr.get(1) %>"> 
+                <td class="<%="table-" + tableNumber + "-cell" %>"> 
+                    <input onchange="updatePreview('<%= updPrevSource %>', '<%= updPrevTarg %>')" type="checkbox" name="ingredientes" value="<%= ingr.get(1) %>" <%= (isInIgr) ? "checked" : "" %>> 
                 </td>
-                <td class="table-3-cell"> <%= ingr.get(1) %> </td>
+                <td class="<%="table-" + tableNumber + "-cell" %>"> <%= ingr.get(1) %> </td>
             </tr>
         </label>
         

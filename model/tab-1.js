@@ -13,7 +13,7 @@ function loadTable1()
         //else erro
         else{
             alert("Erro ao carregar tabela");
-            console.log(response)
+            console.log(response);
             document.getElementById("table-1").innerHTML = response;
         }
     });
@@ -42,7 +42,7 @@ function deleteComida(id)
                 console.log(response);                
             }
 
-            loadTab1();
+            loadTable1();
         });
     }
     //else nao

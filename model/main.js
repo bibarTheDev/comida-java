@@ -42,7 +42,7 @@ function getFormPratoData(source)
         unid: "",
         ingredientes: []
     };
-
+    
     //popula dataset
     serialData.forEach(elem => 
     {
@@ -101,4 +101,82 @@ function updatePreview(source, target)
 
     //joga texto na view
     document.getElementById(target).innerHTML = content;
+}
+
+/**
+ * pega todos os dados relacionandos a um prato
+ * 
+ * @param id o id do prato
+ */
+async function getAllPratoData(id)
+{
+    let dados;
+    
+    let params = {teste: teste, id: id};
+    await $.get(path + "model/interfaces-java/get-comida.jsp", params, (response) =>
+    {   
+        //if is serial, sucesso
+        if(response.trim().startsWith("nome=")){
+            dados = deserializePrato(response.trim()); 
+        }
+        //else erro
+        else{
+            alert("Erro ao carregar dados");
+            console.log(response);
+        }
+    });
+    return dados;
+}
+
+/**
+ * desserializa uma string de prato
+ * 
+ * @param serialPrato a string serializada
+ * @returns objeto prato
+ */
+function deserializePrato(serialPrato)
+{
+    let pesVolUnid;
+    serialPrato = serialPrato.split("&");
+
+    //cria dataset
+    let data = {
+        nome: "",
+        descricao: "",
+        pesoVolume: "",
+        unid: "",
+        ingredientes: []
+    };
+
+    //popula dataset
+    serialPrato.forEach(elem => 
+    {
+        field = elem.split("=");
+        switch (field[0]) {
+            case "ingredientes":{  
+                data.ingredientes.push(fixStringSpace(field[1]));
+                break;
+            }
+            case "nome":{
+                data.nome = fixStringSpace(field[1]);
+                break;
+            }
+            case "descricao":{
+                data.descricao = fixStringSpace(field[1]);
+                break;
+            }
+            case "pesVol":{
+                pesVolUnid = fixStringSpace(field[1]).split(" ");
+                break;
+            }
+            default:
+                break;
+        }
+    });
+
+    //fix rapido
+    data.pesoVolume = pesVolUnid[0];
+    data.unid = pesVolUnid[1];
+
+    return data;
 }

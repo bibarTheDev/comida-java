@@ -56,7 +56,7 @@
                         <div class="form-3-box">
                             <div class="input-group">
                                 Ingredientes:
-                                <div id="table-3" >
+                                <div id="table-3">
                                     Yo soy table 3
                                 </div>
                             </div>
@@ -69,7 +69,7 @@
                             </div>
                             <div class="input-group">
                                 Descricao:
-                                <input onkeyup="updatePreview('tab-3-form', 'tab-3-preview')" class="input-t" type="text" name="descr">
+                                <textarea onkeyup="updatePreview('tab-3-form', 'tab-3-preview')" class="input-t" type="text" name="descr"></textarea>
                             </div>
                             <div class="input-group">
                                 Tamanho:
@@ -106,7 +106,7 @@
                         <div class="form-4-box">
                             <div class="input-group">
                                 Ingredientes:
-                                <div id="table-4" >
+                                <div id="table-4">
                                     Yo soy table 4
                                 </div>
                             </div>
@@ -115,17 +115,17 @@
                         <div class="form-4-box">
                             <div class="input-group">
                                 Nome:
-                                <input onkeyup="updatePreview('tab-4-form', 'tab-4-preview')" class="input-t" type="text" name="nome">
+                                <input id="form-4-nome" onkeyup="updatePreview('tab-4-form', 'tab-4-preview')" class="input-t" type="text" name="nome">
                             </div>
                             <div class="input-group">
                                 Descricao:
-                                <input onkeyup="updatePreview('tab-4-form', 'tab-4-preview')" class="input-t" type="text" name="descr">
+                                <textarea id="form-4-descr" onkeyup="updatePreview('tab-4-form', 'tab-4-preview')" class="input-t" type="text" name="descr"></textarea>
                             </div>
                             <div class="input-group">
                                 Tamanho:
                                 <span>
-                                    <input onkeyup="updatePreview('tab-4-form', 'tab-4-preview')" class="input-n" type="number" name="pes-vol">
-                                    <select onchange="updatePreview('tab-4-form', 'tab-4-preview')" name="unid">
+                                    <input id="form-4-pes-vol" onkeyup="updatePreview('tab-4-form', 'tab-4-preview')" class="input-n" type="number" name="pes-vol">
+                                    <select id="form-4-unid" onchange="updatePreview('tab-4-form', 'tab-4-preview')" name="unid">
                                         <option value="gramas">gramas</option>
                                         <option value="mililitros">mililitros</option>
                                     </select>

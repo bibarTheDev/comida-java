@@ -29,6 +29,12 @@ function addPrato(ev)
     //data from form
     let data = getFormPratoData("tab-3-form");
 
+    //valiadacao
+    if(!data.nome || !data.descricao || !data.pesoVolume || !data.ingredientes.length){
+        alert("preencha todos os campos e escolha ao menos um ingrediente!");
+        return;
+    }
+
     let params = {
         teste: teste, 
         nome: data.nome,

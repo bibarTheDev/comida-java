@@ -51,7 +51,7 @@ else{
             <td class="table-1-cell"> <%= prato.get(1) %> </td>
             <td class="table-1-cell"> <%= prato.get(2) %> </td>
             <td class="table-1-cell"> <%= prato.get(3) %> </td>
-            <td class="table-1-cell"> <div class="edit-button icon" onclick="editComida(<%= prato.get(0) %>)"> <img class="img-icon" src="../images/static/edit.png" alt="editar"> </div> </td>
+            <td class="table-1-cell"> <div class="edit-button icon" onclick="prepareEditComida(<%= prato.get(0) %>)"> <img class="img-icon" src="../images/static/edit.png" alt="editar"> </div> </td>
             <td class="table-1-cell"> <div class="delete-button icon" onclick="deleteComida(<%= prato.get(0) %>)"> <img class="img-icon" src="../images/static/delete.png" alt="deletar"> </div> </td>
         </tr>
     
