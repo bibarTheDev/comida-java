@@ -6,6 +6,7 @@ window.onload = () =>
     loadTable3();
     
     document.getElementById("tab-3-form").onsubmit = addPrato;
+    document.getElementById("tab-4-form").onsubmit = atualizaPrato;
 }
 
 let path = "/comida-java/";
@@ -36,6 +37,7 @@ function getFormPratoData(source)
     
     //cria dataset
     let data = {
+        id: "",
         nome: "",
         descricao: "",
         pesoVolume: "",
@@ -68,6 +70,10 @@ function getFormPratoData(source)
                 data.unid = fixStringSpace(field[1]);
                 break;
             }
+            case "id":{
+                data.id = fixStringSpace(field[1]);
+                break;
+            }
             default:
                 break;
         }
@@ -77,12 +83,12 @@ function getFormPratoData(source)
 }
 
 /**
- * atualiza o preview de dados
+ * atualiza o preview de dados do prato a partir de um formulario
  * 
  * @param source o form daond eel vai pegar os dados
  * @param target o objeto HTML que vai receber a previes
  */
-function updatePreview(source, target)
+function updatePreviewFromForm(source, target)
 {
     //pega dados
     let data = getFormPratoData(source);
@@ -116,13 +122,13 @@ async function getAllPratoData(id)
     await $.get(path + "model/interfaces-java/get-comida.jsp", params, (response) =>
     {   
         //if is serial, sucesso
-        if(response.trim().startsWith("nome=")){
+        if(response.trim().startsWith("id=")){
             dados = deserializePrato(response.trim()); 
         }
         //else erro
         else{
             alert("Erro ao carregar dados");
-            console.log(response);
+            dados = false;
         }
     });
     return dados;
@@ -141,6 +147,7 @@ function deserializePrato(serialPrato)
 
     //cria dataset
     let data = {
+        id: "",
         nome: "",
         descricao: "",
         pesoVolume: "",
@@ -155,6 +162,10 @@ function deserializePrato(serialPrato)
         switch (field[0]) {
             case "ingredientes":{  
                 data.ingredientes.push(fixStringSpace(field[1]));
+                break;
+            }
+            case "id":{
+                data.id = fixStringSpace(field[1]);
                 break;
             }
             case "nome":{

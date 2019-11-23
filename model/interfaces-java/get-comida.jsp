@@ -35,8 +35,8 @@ if(errorList.size() != 0){
 //else sucesso
 else{
     //formatacao
-    String serialPrato = "";
-    serialPrato += "nome="+ prato.get(0);
+    String serialPrato = "id="+id;
+    serialPrato += "&nome="+ prato.get(0);
     serialPrato += "&pesVol="+ prato.get(1);
     serialPrato += "&descricao="+ prato.get(2);
 

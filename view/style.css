@@ -22,11 +22,12 @@ body {
 
 /* == forms == */
 
-input[type="text"], input[type="number"] {
+input[type="text"], input[type="number"], textarea, select {
     background-color: #dddddd;
     border: 0;
     border-bottom: 2px solid;
     border-color: #222;
+    padding: 3px;
 }
 
 input::-webkit-outer-spin-button,
@@ -59,6 +60,7 @@ input[type=number] {
     align-items: center;
     border-radius: 3px;
     padding: 7px;
+    border: 0;
 }
 
 .icon {

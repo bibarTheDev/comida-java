@@ -35,6 +35,8 @@
                     <div id="table-1">
                         yo soy table 1
                     </div>
+                    <div id="prato-1-preview">
+                    </div>
                 </div>
             </div>
             <!-- tab 2 -->
@@ -65,17 +67,17 @@
                         <div class="form-3-box">
                             <div class="input-group">
                                 Nome:
-                                <input onkeyup="updatePreview('tab-3-form', 'tab-3-preview')" class="input-t" type="text" name="nome">
+                                <input onkeyup="updatePreviewFromForm('tab-3-form', 'tab-3-preview')" class="input-t" type="text" name="nome">
                             </div>
                             <div class="input-group">
                                 Descricao:
-                                <textarea onkeyup="updatePreview('tab-3-form', 'tab-3-preview')" class="input-t" type="text" name="descr"></textarea>
+                                <textarea onkeyup="updatePreviewFromForm('tab-3-form', 'tab-3-preview')" class="input-t" type="text" name="descr"></textarea>
                             </div>
                             <div class="input-group">
                                 Tamanho:
                                 <span>
-                                    <input onkeyup="updatePreview('tab-3-form', 'tab-3-preview')" class="input-n" type="number" name="pes-vol">
-                                    <select onchange="updatePreview('tab-3-form', 'tab-3-preview')" name="unid">
+                                    <input onkeyup="updatePreviewFromForm('tab-3-form', 'tab-3-preview')" class="input-n" type="number" name="pes-vol">
+                                    <select onchange="updatePreviewFromForm('tab-3-form', 'tab-3-preview')" name="unid">
                                         <option value="gramas">gramas</option>
                                         <option value="mililitros">mililitros</option>
                                     </select>
@@ -85,7 +87,7 @@
                                 <input class="add-button" type="submit" value="Adicionar Prato">
                             </div>
                         </div>
-                        <!-- coluna 3 -->
+                        <!-- coluna 3 (isso esta dentro do form por moticos organizacionais) -->
                         <div class="form-3-box">
                             <div id="tab-3-preview">
             
@@ -101,7 +103,7 @@
                     Nenhum prato selecionado
                 </div>
                 <div id="tab-4-content" class="tab-4-content-hidden">
-                    <form id="tab-3-form" action="" method="">
+                    <form id="tab-4-form" action="" method="">
                         <!-- coluna 1 -->
                         <div class="form-4-box">
                             <div class="input-group">
@@ -114,18 +116,22 @@
                         <!-- coluna 2 -->
                         <div class="form-4-box">
                             <div class="input-group">
+                                Editando:
+                                <input id="form-4-id" name="id" type="number" value="" readonly>
+                            </div>
+                            <div class="input-group">
                                 Nome:
-                                <input id="form-4-nome" onkeyup="updatePreview('tab-4-form', 'tab-4-preview')" class="input-t" type="text" name="nome">
+                                <input id="form-4-nome" onkeyup="updatePreviewFromForm('tab-4-form', 'tab-4-preview')" class="input-t" type="text" name="nome">
                             </div>
                             <div class="input-group">
                                 Descricao:
-                                <textarea id="form-4-descr" onkeyup="updatePreview('tab-4-form', 'tab-4-preview')" class="input-t" type="text" name="descr"></textarea>
+                                <textarea id="form-4-descr" onkeyup="updatePreviewFromForm('tab-4-form', 'tab-4-preview')" class="input-t" type="text" name="descr"></textarea>
                             </div>
                             <div class="input-group">
                                 Tamanho:
                                 <span>
-                                    <input id="form-4-pes-vol" onkeyup="updatePreview('tab-4-form', 'tab-4-preview')" class="input-n" type="number" name="pes-vol">
-                                    <select id="form-4-unid" onchange="updatePreview('tab-4-form', 'tab-4-preview')" name="unid">
+                                    <input id="form-4-pes-vol" onkeyup="updatePreviewFromForm('tab-4-form', 'tab-4-preview')" class="input-n" type="number" name="pes-vol">
+                                    <select id="form-4-unid" onchange="updatePreviewFromForm('tab-4-form', 'tab-4-preview')" name="unid">
                                         <option value="gramas">gramas</option>
                                         <option value="mililitros">mililitros</option>
                                     </select>
@@ -135,7 +141,7 @@
                                 <input class="add-button" type="submit" value="Adicionar Prato">
                             </div>
                         </div>
-                        <!-- coluna 3 -->
+                        <!-- coluna 3 (isso esta dentro do form por moticos organizacionais) -->
                         <div class="form-4-box">
                             <div id="tab-4-preview">
             

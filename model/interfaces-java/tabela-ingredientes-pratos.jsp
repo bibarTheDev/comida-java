@@ -69,7 +69,7 @@ else{
         <label>
             <tr class="<%= ((i++ % 2 == 0) ? "table-row-par" : "table-row-impar") %>">
                 <td class="<%="table-" + tableNumber + "-cell" %>"> 
-                    <input onchange="updatePreview('<%= updPrevSource %>', '<%= updPrevTarg %>')" type="checkbox" name="ingredientes" value="<%= ingr.get(1) %>" <%= (isInIgr) ? "checked" : "" %>> 
+                    <input onchange="updatePreviewFromForm('<%= updPrevSource %>', '<%= updPrevTarg %>')" type="checkbox" name="ingredientes" value="<%= ingr.get(1) %>" <%= (isInIgr) ? "checked" : "" %>> 
                 </td>
                 <td class="<%="table-" + tableNumber + "-cell" %>"> <%= ingr.get(1) %> </td>
             </tr>
